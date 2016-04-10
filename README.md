@@ -8,11 +8,12 @@ Made using [Hugo](https://gohugo.io/), Node.js, and Gulp.
 
 ## Site Sections
 
-* Homepage
+An intimate psytrance/trance event for industry insiders.
+
+* Homepage + buy tickets
 * Lineup + venue info
-* Buy tickets (should this be intergrated in the homepage?)
-* How to get there (seperate page or together with another?)
-* RuffBeatz street team / crew
+* How to get there
+* RuffBeatz promo street team
 
 ## Authors
 
