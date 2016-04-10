@@ -1,6 +1,9 @@
+// TODO: Better browser-sync reload timing: https://www.browsersync.io/docs/gulp/
+
 'use strict';
 
 var gulp = require('gulp');
+var browserSync = require('browser-sync').create();
 var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
@@ -8,13 +11,33 @@ var concat = require('gulp-concat');
 
 gulp.task('default', 'watch');
 gulp.task('build', ['sass', 'js', 'hugo']);
+gulp.task('watch', ['serve']);
 gulp.task('watch', ['sass:watch', 'js:watch']);
+
+//----------------------------------------
+// Browser Sync
+//----------------------------------------
+
+// Static Server + watching scss/html files
+gulp.task('serve', ['sass', 'js'], function() {
+
+    browserSync.init({
+        server: "./../../public",
+    });
+
+    gulp.watch("./scss/**/*.scss", ['sass']);
+    gulp.watch('./static/js/**/*.js', ['js']);
+    gulp.watch(["./../../content/**/*.md"], ['hugo']);
+    gulp.watch("./../../public/**/*.html").on('change', browserSync.reload);
+});
 
 //----------------------------------------
 // Hugo
 //----------------------------------------
 
-// TODO
+gulp.task('hugo', function () {
+  // TODO
+});
 
 //----------------------------------------
 // CSS
@@ -29,11 +52,8 @@ gulp.task('sass', function () {
 			cascade: false,
 		}))
     .pipe(sourcemaps.write('./static/css/maps'))
-    .pipe(gulp.dest('./static/css'));
-});
-
-gulp.task('sass:watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
+    .pipe(gulp.dest('./static/css'))
+    .pipe(browserSync.stream());
 });
 
 //----------------------------------------
@@ -46,9 +66,6 @@ gulp.task('js', function () {
     .pipe(concat('app.js'))
     // TODO: Optimise JS
     .pipe(sourcemaps.write('./static/js/maps'))
-    .pipe(gulp.dest('./static/js'));
-});
-
-gulp.task('js:watch', function () {
-  gulp.watch('./static/js/**/*.js', ['js']);
+    .pipe(gulp.dest('./static/js'))
+    .pipe(browserSync.stream());
 });
