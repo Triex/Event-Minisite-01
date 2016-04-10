@@ -2,7 +2,7 @@
 
 ## Overview
 
-The code that powers [https://events.ruffbeatz.com/2016-05-28-escape-reality/]. Made using [Hugo](https://gohugo.io/), Node.js, and Gulp.
+The code that powers https://events.ruffbeatz.com/2016-05-28-escape-reality/ . Made using [Hugo](https://gohugo.io/), Node.js, and Gulp.
 
 ## Site Sections
 
