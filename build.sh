@@ -34,6 +34,11 @@ if [ ! -d "$THEME_DIR/node_modules" ]; then
 
   # Install Node modules
   npm install $THEME_DIR
+else
+  echo -e "Updating node modules...\n"
+  
+  # Update Node modules
+  npm update $THEME_DIR --save --save-dev
 fi
 
 # Remove files from any ealier builds
