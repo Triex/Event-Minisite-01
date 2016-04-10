@@ -1,0 +1,25 @@
+{
+  "name": "rfb-event-01",
+  "version": "1.0.0",
+  "description": "Hugo theme for events.ruffbeatz.com",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RuffBeatz/Event-Minisite-01.git"
+  },
+  "keywords": [
+    "ruffbeatz",
+    "minisite",
+    "go",
+    "hugo"
+  ],
+  "author": "Max Milton <max@wearegenki.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RuffBeatz/Event-Minisite-01/issues"
+  },
+  "homepage": "https://github.com/RuffBeatz/Event-Minisite-01#readme"
+}
