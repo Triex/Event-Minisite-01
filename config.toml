@@ -11,3 +11,5 @@ disableRSS = true
 [params]
 	description = "Change me."
 	author = "RuffBeatz"
+
+# TODO: Update robots.txt with correct sitemap location

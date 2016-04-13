@@ -8,6 +8,7 @@ var exec = require('child_process').exec;
 var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
+var rename = require("gulp-rename");
 var concat = require('gulp-concat');
 
 gulp.task('default', ['watch']);
@@ -47,15 +48,16 @@ gulp.task('hugo', function(fetch) {
 //----------------------------------------
 
 gulp.task('sass', function () {
-  return gulp.src('./sass/main.scss')
-    // .pipe(sourcemaps.init())
+  return gulp.src('./scss/main.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    // .pipe(prefix({
-		// 	browsers: ['last 2 versions'],
-		// 	cascade: false,
-		// }))
+    .pipe(prefix({
+			browsers: ['last 2 versions'],
+			cascade: false,
+		}))
     .pipe(sourcemaps.write('./maps'))
-    // .pipe(gulp.dest('./static/css'))
+    .pipe(rename('app.css'))
+    .pipe(gulp.dest('./static/css/'))
     .pipe(browserSync.stream());
 });
 
