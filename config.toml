@@ -1,3 +1,13 @@
 baseurl = "http://replace-this-with-your-hugo-site.com/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+languageCode = "en-au"
+
+title = "Escape Reality, Sydney 24 May 2016 | RuffBeatz"
+theme = "rfb-event-01"
+
+uglyUrls = true
+#canonifyurls = true
+disableRSS = true
+
+[params]
+	description = "Change me."
+	author = "RuffBeatz"

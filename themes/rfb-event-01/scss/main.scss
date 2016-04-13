@@ -1,3 +1,5 @@
+/*! © 2016 RuffBeatz Entertainment */
+
 // Import extra resources
 @import "variables";
 @import "mixins";
@@ -7,3 +9,8 @@
 // Minisite Global Theme
 
 // TODO
+
+body {
+  background-color: #eee;
+  font-weight: bold;
+}
