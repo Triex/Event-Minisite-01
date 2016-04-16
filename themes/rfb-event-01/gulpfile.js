@@ -1,15 +1,13 @@
-// TODO: Better browser-sync reload timing: https://www.browsersync.io/docs/gulp/
-
 'use strict';
 
-var gulp = require('gulp');
+var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
-var exec = require('child_process').exec;
-var sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-sass');
-var prefix = require('gulp-autoprefixer');
-var rename = require("gulp-rename");
-var concat = require('gulp-concat');
+var exec        = require('child_process').exec;
+var sourcemaps  = require('gulp-sourcemaps');
+var sass        = require('gulp-sass');
+var prefix      = require('gulp-autoprefixer');
+var rename      = require('gulp-rename');
+var concat      = require('gulp-concat');
 
 gulp.task('default', ['watch']);
 gulp.task('build', ['sass', 'js', 'hugo']);
@@ -21,14 +19,14 @@ gulp.task('watch', ['serve']);
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass', 'js'], function() {
-    browserSync.init({
-        server: "./../../public",
-    });
+  browserSync.init({
+    server: './../../public',
+  });
 
-    gulp.watch("./scss/**/*.scss", ['sass']);
-    gulp.watch('./static/js/**/*.js', ['js']);
-    gulp.watch(["./layouts/**/*.html", "./../../content/**/*.md"], ['hugo']);
-    gulp.watch(["./../../public/**/*.html"]).on('change', browserSync.reload);
+  gulp.watch('./scss/**/*.scss', ['sass']);
+  gulp.watch('./static/js/**/*.js', ['js']);
+  gulp.watch(['./layouts/**/*.html', './../../content/**/*.md'], ['hugo']);
+  gulp.watch(['./../../public/**/*.html']).on('change', browserSync.reload);
 });
 
 //----------------------------------------
@@ -50,7 +48,7 @@ gulp.task('hugo', function(fetch) {
 gulp.task('sass', function () {
   return gulp.src('./scss/main.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(prefix({
 			browsers: ['last 2 versions'],
 			cascade: false,

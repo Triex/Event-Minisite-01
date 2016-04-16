@@ -1,7 +1,7 @@
 baseurl = "http://replace-this-with-your-hugo-site.com/"
 languageCode = "en-au"
 
-title = "Escape Reality, Sydney 24 May 2016 | RuffBeatz"
+title = "Escape Reality"
 theme = "rfb-event-01"
 
 uglyUrls = true
